@@ -50,7 +50,7 @@ private:
         if (rest)
             tmp._number.push_back(rest);
         return tmp;
-    }
+    }git add bi 
     void    printDeque()
     {
         for (size_t i = 0; i < _number.size(); i++)
