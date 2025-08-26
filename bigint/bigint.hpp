@@ -14,7 +14,6 @@ private:
     }
     bigint(size_t num)
     {
-        std::cout << "number: " << num << std::endl;
         for (; num ;)
         {
             _number.push_front(num % 10);
@@ -26,7 +25,7 @@ private:
     {
         _number = other._number;
     }
-    bigint &operator=(bigint &other)
+    bigint &operator=(const bigint &other)
     {
         if (this != &other)
         {
@@ -50,7 +49,44 @@ private:
         if (rest)
             tmp._number.push_back(rest);
         return tmp;
-    }git add bi 
+    }
+    bigint operator+=(const bigint &other)
+    {
+        *this = this->operator+(other);
+        return *this;
+    }
+    bigint &operator++()
+    {
+        *this = this->operator+(bigint(1));
+        return *this;
+    }
+    bigint operator++(int)
+    {
+        bigint tmp;
+        tmp = this->operator+(bigint(1));
+        *this = this->operator+(bigint(1));
+        return tmp;
+    }
+    bigint operator<<(int shift)
+    {
+        bigint tmp(*this);
+        while (shift >= 0)
+        {
+            tmp._number.push_front(0);
+            shift--;
+        }
+        return tmp;
+    }
+    bigint operator>>(int shift)
+    {
+        bigint tmp(*this);
+        while (shift >= 0)
+        {
+            tmp._number.pop_front();
+            shift--;
+        }
+        return tmp;
+    }
     void    printDeque()
     {
         for (size_t i = 0; i < _number.size(); i++)

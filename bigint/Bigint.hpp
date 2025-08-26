@@ -126,11 +126,12 @@ class bigint{
 			return !operator<(nb);
 		}
 		bool operator==(const bigint &nb)const{
+			(void)nb;
 			if (data.size() != nb.data.size())
 				return false;
 			for (size_t i = 0; i < data.size(); i++)
 			{
-				if (data[i] != nb.data.size())
+				if ((size_t)data[i] != nb.data.size())
 					return false;
 			}
 			return true;
@@ -140,6 +141,7 @@ class bigint{
 		}
 
 		bigint operator-(const bigint &nb)const{
+			(void)nb;
 			return bigint(0);
 		}
 
