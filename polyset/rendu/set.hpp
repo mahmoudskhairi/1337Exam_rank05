@@ -8,7 +8,9 @@ private:
     searchable_bag &mybag;
 public:
     set(searchable_bag &other): mybag(other){}
-    ~set(){}
+    ~set(){
+        mybag.clear();
+    }
     void insert (int num){
         if (!mybag.has(num))
             mybag.insert(num);
