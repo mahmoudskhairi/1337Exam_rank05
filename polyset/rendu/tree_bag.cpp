@@ -34,7 +34,7 @@ void tree_bag::insert(int val) {
 		if (val < (*n)->value)
 			n = &(*n)->l;
 		else if (val >= (*n)->value)
-			n = &(*n)->r
+			n = &(*n)->r;
 	}
 	*n = new node((node){0, 0, val});
 }

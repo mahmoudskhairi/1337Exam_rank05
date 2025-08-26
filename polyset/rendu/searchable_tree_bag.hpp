@@ -12,7 +12,6 @@ public:
             tree_bag::operator=(other);
         return *this;
     }
-    searchable_tree_bag(const searchable_tree_bag &other){}
 	bool has(int num) const
     {
         node *tmp = this ->tree;
